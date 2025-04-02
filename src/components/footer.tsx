@@ -10,12 +10,11 @@ export default function Footer() {
           {/* Logo and Description */}
           <div>
             <h2 className="text-2xl font-bold mb-4">
-              <span className="text-white">HAPPY</span>
-              <span className="text-[#7AB5F5]">DENTAL</span>
+              <span className="text-white">Dhillon</span>
+              <span className="text-[#7AB5F5]">Dental Studio</span>
             </h2>
             <p className="text-white/80 mb-6 leading-relaxed">
-              Amet quis rhoncus turpis phasellus ut dui. Volutpat turpis tortor blandit eget nibh ac lacus vitae purus.
-              Sagittis tortor fermentum.
+            At Dhillon Dental Studio, we are committed to providing high-quality dental care with a focus on patient comfort and long-lasting oral health. Our expert team uses advanced technology and personalized treatments to ensure you achieve a confident, healthy smile.
             </p>
 
             {/* Social Icons */}
@@ -70,7 +69,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="bg-[#B0D5FF] py-4">
         <div className="container flex flex-col md:flex-row justify-between items-center text-sm text-[#062E2E]">
-          <div>Copyright © 2023 Happy Dental | Design by TokoTema</div>
+          <div>Copyright © 2023 Dhillon Dental Studio | Design by HeshMedia</div>
           <div className="flex gap-4 mt-2 md:mt-0">
             <Link href="/terms" className="hover:underline">Terms of Use</Link>
             <Link href="/privacy" className="hover:underline">Privacy Policy</Link>

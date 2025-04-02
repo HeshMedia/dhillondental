@@ -13,8 +13,7 @@ export default function Services() {
                 Dental Services for <br /> Your Smile
               </h2>
               <p className="text-gray-600 mb-8">
-                Purus turpis vivamus sem est blandit. In at egestas id sollicitudin mattis integer aliquet ut tempor.
-                Risus enim nisi ipsum imperdiet. Sed turpis tellus quisque tellus ipsum malesuada.
+              At Dhillon Dental Studio, we offer high-quality dental care to keep your smile healthy and bright. From routine checkups to advanced treatments, we are here to provide expert care in a comfortable setting.
               </p>
             </div>
 
@@ -28,81 +27,58 @@ export default function Services() {
           {/* Right Section - Services List */}
           <div className="space-y-8 flex flex-col justify-between h-full">
             {/* Service 1 */}
-            <div className="flex gap-6 items-start">
+            <div className="flex gap-6 ">
               <div className="bg-[#062E2E] p-4 rounded-md flex items-center justify-center w-16 h-16">
                 {/* Icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 13l4 4L19 7" />
-                </svg>
+                <img
+                src="/dental-implan-white.svg"
+                alt="Dental Implant Icon"
+                className="w-8 h-8"
+              /> 
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[#031B35] mb-1">Teeth Whitening</h3>
+                <h3 className="text-lg font-bold text-[#031B35] mb-1">Dental Implants</h3>
                 <p className="text-gray-600 text-sm">
-                  Vitae id at ac proin accumsan euismod egestas tortor fermentum. Porta odio erat diam.
+                Durable and natural-looking solutions to restore missing teeth.
                 </p>
               </div>
             </div>
             <div className="h-px bg-gray-200 w-full"></div> {/* Divider */}
 
             {/* Service 2 */}
-            <div className="flex gap-6 items-start">
+            <div className="flex gap-6 ">
               <div className="bg-[#062E2E] p-4 rounded-md flex items-center justify-center w-16 h-16">
                 {/* Icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 13l4 4L19 7" />
-                </svg>
+                <img
+                src="/dental-implan-white.svg"
+                alt="Dental Implant Icon"
+                className="w-8 h-8"
+              /> 
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[#031B35] mb-1">Teeth Checkup</h3>
+                <h3 className="text-lg font-bold text-[#031B35] mb-1">Regular Checkup</h3>
                 <p className="text-gray-600 text-sm">
-                  Vitae id at ac proin accumsan euismod egestas tortor fermentum. Porta odio erat diam.
+                Regular checkups to detect and prevent dental issues early.
                 </p>
               </div>
             </div>
             <div className="h-px bg-gray-200 w-full"></div> {/* Divider */}
 
             {/* Service 3 */}
-            <div className="flex gap-6 items-start">
+            <div className="flex gap-6 ">
               <div className="bg-[#062E2E] p-4 rounded-md flex items-center justify-center w-16 h-16">
                 {/* Icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 13l4 4L19 7" />
-                </svg>
+                {/* Icon */}
+              <img
+                src="/dental-implan-white.svg"
+                alt="Dental Implant Icon"
+                className="w-8 h-8"
+              />        
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[#031B35] mb-1">Dental Implants</h3>
+                <h3 className="text-lg font-bold text-[#031B35] mb-1">Teeth Whitening</h3>
                 <p className="text-gray-600 text-sm">
-                  Vitae id at ac proin accumsan euismod egestas tortor fermentum. Porta odio erat diam.
+                Enhance your smile with safe and effective teeth whitening treatments.
                 </p>
               </div>
             </div>

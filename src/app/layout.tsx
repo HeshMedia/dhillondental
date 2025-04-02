@@ -9,7 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Happy Dental - Your Trusted Partner For Dental Health",
+  title: "Dhillon Dental Studio - Your Trusted Partner For Dental Health",
   description: "Professional dental services for your perfect smile",
 }
 
