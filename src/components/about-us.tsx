@@ -71,7 +71,7 @@ export default function AboutUs() {
           {/* Left side - Image & Decoration (appears second on mobile) */}
           <div
             className="order-2 md:order-1 relative h-80 md:h-[38rem] w-full bg-[#031B35]"
-            style={{ backgroundImage: 'url(/reception.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+            style={{ backgroundImage: 'url(/about.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
           >
             <div className="w-16 h-16 md:w-24 md:h-24 bg-[#009FE3] absolute bottom-24 left-0" />
             <div className="w-16 h-16 md:w-24 md:h-24 bg-white absolute bottom-0 left-0" />

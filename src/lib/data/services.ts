@@ -97,7 +97,7 @@ export interface ServiceDetail {
         'Application of protective gel and whitening agent',
         'Light activation and final shade assessment',
       ],
-      image: 'https://plus.unsplash.com/premium_photo-1674575272209-9fc8a133209f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: 'https://images.unsplash.com/photo-1684607633080-df59e6874367?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
   
     'root-canal-treatment': {
