@@ -62,7 +62,7 @@ export default function Services() {
             </Link>
             <div className="h-px bg-gray-200 w-full"></div> {/* Divider */}
             {/* Service 2 */}
-            <Link href={"/services/smile-makeover"}>
+            <Link href={"/services/smile-makeover          "}>
               <div className="flex gap-6 ">
                 <div className="bg-[#062E2E] p-4 rounded-md flex items-center justify-center w-16 h-16">
                   {/* Icon */}

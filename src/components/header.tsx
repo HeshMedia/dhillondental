@@ -66,7 +66,9 @@ export default function Header() {
           </div>
 
           {/* CTA Button */}
+         
           <div className="hidden md:block">
+          <Link href="/contact">
             <Button className="bg-[#00395D] hover:bg-gray-800 text-white border-2 border-gray-800 font-medium">
               Get Started
               <svg
@@ -85,6 +87,7 @@ export default function Header() {
                 <path d="m12 5 7 7-7 7" />
               </svg>
             </Button>
+            </Link>
           </div>
         </div>
 
@@ -104,6 +107,7 @@ export default function Header() {
             <Link href="/contact" className="block hover:text-[#031B35] transition-colors">
               Contact Us
             </Link>
+            <Link href="/contact">
             <Button className="w-full bg-[#00395D] hover:bg-gray-800 text-white border-2 border-gray-800 font-medium">
               Get Started
               <svg
@@ -122,6 +126,7 @@ export default function Header() {
                 <path d="m12 5 7 7-7 7" />
               </svg>
             </Button>
+            </Link>
           </nav>
         )}
       </div>

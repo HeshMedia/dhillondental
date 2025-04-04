@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { serviceDetails } from '@/lib/data/services';
+import Link from "next/link";
 
 
 
@@ -64,10 +65,11 @@ export default function ServiceDetailPage({
               <li key={idx}>{step}</li>
             ))}
           </ul>
-
+            <Link href={"/contact"}>
           <button className="bg-black text-white px-6 py-3 rounded-md mt-4 hover:bg-gray-800 transition">
             Make Appointment →
           </button>
+          </Link>
         </div>
 
         {/* Right Image Block */}

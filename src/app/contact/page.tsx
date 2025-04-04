@@ -25,41 +25,49 @@ export default function ContactUsPage() {
         <div>
           <h2 className="text-3xl font-semibold mb-4 text-[#0e2a47]">Get in Touch</h2>
           <p className="mb-6 text-lg leading-relaxed">
-            We'd love to hear from you! Whether you're ready to book an appointment or simply have a question about our services, our team is here to help.
+        We'd love to hear from you! Whether you're ready to book an appointment or simply have a question about our services, our team is here to help.
           </p>
           <div className="space-y-4 text-lg">
-            <p><strong>Phone:</strong> +91 7009427538</p>
-            <p><strong>Email:</strong> dhillonddentalstudio@gmail.com</p>
-            <p><strong>Address:</strong>Shop no 45, Crown Plaza Market, Airport Road, Amritsar</p>
-            <p><strong>Hours:</strong> Mon – Sat: 9:00 AM – 7:00 PM</p>
+        <p><strong>Phone:</strong> +91 7009427538</p>
+        <p><strong>Email:</strong> dhillonddentalstudio@gmail.com</p>
+        <p><strong>Address:</strong>Shop no 45, Crown Plaza Market, Airport Road, Amritsar</p>
+        <p><strong>Hours:</strong> Mon – Sat: 9:00 AM – 7:00 PM</p>
           </div>
         </div>
 
         {/* Form Section */}
         <div className="bg-white p-8 rounded-xl shadow-md">
-          <h3 className="text-2xl font-semibold text-[#0e2a47] mb-6">Send Us a Message</h3>
+          <h3 className="text-2xl font-semibold text-[#0e2a47] mb-6">Book an Appointment</h3>
           <form className="space-y-4">
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
-            />
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
-            />
-            <textarea
-              placeholder="Your Message"
-              rows={5}
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-[#009FE3] hover:bg-[#007bbf] text-white font-medium px-6 py-3 rounded-md shadow-md transition duration-300"
-            >
-              Submit
-            </button>
+        <input
+          type="text"
+          placeholder="Full Name"
+          className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
+        />
+        <input
+          type="email"
+          placeholder="Email Address"
+          className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
+        />
+        <textarea
+          placeholder="Your Message"
+          rows={5}
+          className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
+        ></textarea>
+        <input
+          type="date"
+          className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
+        />
+        <input
+          type="time"
+          className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
+        />
+        <button
+          type="submit"
+          className="bg-[#009FE3] hover:bg-[#007bbf] text-white font-medium px-6 py-3 rounded-md shadow-md transition duration-300"
+        >
+          Book Now
+        </button>
           </form>
         </div>
       </div>

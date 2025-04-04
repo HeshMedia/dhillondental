@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function Journey() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container">
         <div className="text-center mb-12">
-          <h3 className="text-sm font-medium text-secondary mb-2">How It Works</h3>
+          <h3 className="text-sm font-medium  mb-2">How It Works</h3>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
             Your Journey to a Healthy Smile Starts Here
           </h2>
@@ -16,7 +17,7 @@ export default function Journey() {
             {
               title: "Make Appointment",
               description:
-                "Purus turpis volutpat sem sed blandit. In at egestas ut adipiscing et adipiscing! Ex varius arcu sit.",
+                "Schedule your visit with ease and take the first step towards a healthier smile. Our team is here to assist you every step of the way.",
               icon: (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +40,7 @@ export default function Journey() {
             {
               title: "Expert Dental Care",
               description:
-                "Purus turpis volutpat sem sed blandit. In at egestas ut adipiscing et adipiscing! Ex varius arcu sit.",
+                "Receive top-notch dental care from our experienced professionals. We prioritize your comfort and oral health at every visit.",
               icon: (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +60,7 @@ export default function Journey() {
             {
               title: "Radiate Confidence",
               description:
-                "Purus turpis volutpat sem sed blandit. In at egestas ut adipiscing et adipiscing! Ex varius arcu sit.",
+                "Achieve a radiant smile that boosts your confidence. Let us help you shine with a smile you’ll love to share.",
               icon: (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +92,8 @@ export default function Journey() {
         </div>
 
         <div className="mt-12 text-center">
-          <Button className="bg-primary hover:bg-secondary text-white">
+          <Link href={"/contact"}>
+          <Button className="bg-primary hover:bg-[#4e83be] text-white">
             Make Appointment
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -109,9 +111,9 @@ export default function Journey() {
               <path d="m12 5 7 7-7 7" />
             </svg>
           </Button>
+          </Link>
         </div>
       </div>
     </section>
   )
 }
-

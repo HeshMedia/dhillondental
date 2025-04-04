@@ -1,5 +1,6 @@
 import { CheckCircle } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AboutUsPage() {
   return (
@@ -64,9 +65,11 @@ export default function AboutUsPage() {
         <div className="mt-20 text-center">
           <h3 className="text-3xl font-bold text-[#0e2a47] mb-4">Ready to Transform Your Smile?</h3>
           <p className="text-lg text-gray-700 mb-6">Book your consultation with Dhillon Dental Studio and take the first step toward a healthier, more confident you.</p>
+          <Link href="/contact">
           <button className="bg-[#009FE3] hover:bg-[#007bbf] text-white text-lg px-8 py-3 rounded-full shadow-md transition-all duration-300">
             Book Your Visit
           </button>
+          </Link>
         </div>
       </div>
     </div>

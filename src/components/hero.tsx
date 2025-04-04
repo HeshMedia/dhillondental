@@ -1,5 +1,6 @@
 // Import Button Component
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -25,6 +26,7 @@ export default function Hero() {
             high-quality care. With years of experience and a strong patient base, we are committed
             to ensuring healthy and beautiful smiles.
           </p>
+          <Link href="/contact">
           <Button className="bg-[#00395D] hover:bg-[#BCE7F5] text-white hover:text-[#031B35] p-4 font-medium">
             Make Appointment
             <svg
@@ -43,6 +45,7 @@ export default function Hero() {
               <path d="m12 5 7 7-7 7" />
             </svg>
           </Button>
+          </Link>
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Team() {
   return (
@@ -28,6 +29,7 @@ export default function Team() {
 
           {/* Know More Button */}
           <div className="flex justify-center md:self-center">
+            <Link href="/doctors" >
             <Button variant="outline" className="text-[#031B35] border-white bg-white">
               Know More
               <svg
@@ -46,6 +48,7 @@ export default function Team() {
                 <path d="m12 5 7 7-7 7" />
               </svg>
             </Button>
+            </Link>
           </div>
         </div>
       </div>
