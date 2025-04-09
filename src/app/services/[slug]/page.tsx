@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { serviceDetails } from '@/lib/data/services';
 import Link from "next/link";
-
+import { TiTick } from "react-icons/ti";
 
 
 
@@ -48,17 +48,27 @@ export default function ServiceDetailPage({
           <h2 className="text-xl font-bold text-[#0e2a47] mb-2">
             Why Choose {service.title}?
           </h2>
-          <ul className="list-disc ml-6 text-gray-700 mb-6 space-y-1">
+            <ul className="list-disc ml-6 text-gray-700 mb-6 space-y-1">
             {service.benefits.map((point: string, idx: number) => (
-              <li key={idx}>{point}</li>
+              <div key={idx}>
+              <TiTick className="inline text-lg" /> {point}
+              </div>
             ))}
-          </ul>
+            </ul>
+
+          <h2 className="text-xl font-bold text-[#0e2a47] mb-2">
+            {service.Sh}?
+          </h2>
 
           <ul className="list-disc ml-6 text-gray-700 mb-6 space-y-1">
             {service.solutions.map((solution: string, idx: number) => (
               <li key={idx}>{solution}</li>
             ))}
           </ul>
+
+          <h2 className="text-xl font-bold text-[#0e2a47] mb-2">
+            {service.stepH}?
+          </h2>
 
           <ul className="list-disc ml-6 text-gray-700 mb-6 space-y-1">
             {service.steps.map((step: string, idx: number) => (

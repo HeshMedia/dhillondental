@@ -1,15 +1,36 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function Services() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { amount: 0.2 });
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.6 } },
+  };
+
   return (
     <section className="py-20 bg-white">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left Section - Heading and Block */}
-          <div className="flex flex-col justify-between h-full">
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={fadeInUp}
+            className="flex flex-col justify-between h-full"
+          >
             <div>
               <h3 className="text-base font-medium text-[#062E2E] mb-2">
                 Our Service
@@ -25,24 +46,32 @@ export default function Services() {
               </p>
             </div>
 
-            {/* Decorative Image Section - Looks clean and balanced */}
-            <div className="relative w-full h-72 rounded-sm overflow-hidden shadow-md">
+            {/* Decorative Image Section */}
+            <motion.div
+              variants={fadeIn}
+              className="relative w-full h-72 rounded-sm overflow-hidden shadow-md"
+            >
               <Image
                 src="/hh1.webp"
                 alt="Consultation at Dhillon Dental Studio"
                 fill
                 className="object-cover"
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Section - Services List */}
-          <div className=" flex flex-col justify-between pt-10 space-y-8">
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={fadeInUp}
+            className="flex flex-col justify-between pt-10 space-y-8"
+          >
             {/* Service 1 */}
             <Link href={"/services/dental-implants"}>
-              <div className="flex gap-6 ">
+              <motion.div variants={fadeInUp} className="flex gap-6">
                 <div className="bg-[#062E2E] p-4 rounded-md flex items-center justify-center w-16 h-16">
-                  {/* Icon */}
                   <img
                     src="/dental-implan-white.svg"
                     alt="Dental Implant Icon"
@@ -58,14 +87,14 @@ export default function Services() {
                     teeth.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </Link>
-            <div className="h-px bg-gray-200 w-full"></div> {/* Divider */}
+            <div className="h-px bg-gray-200 w-full"></div>
+
             {/* Service 2 */}
-            <Link href={"/services/smile-makeover          "}>
-              <div className="flex gap-6 ">
+            <Link href={"/services/smile-makeover"}>
+              <motion.div variants={fadeInUp} className="flex gap-6">
                 <div className="bg-[#062E2E] p-4 rounded-md flex items-center justify-center w-16 h-16">
-                  {/* Icon */}
                   <img
                     src="/dental-implan-white.svg"
                     alt="Dental Implant Icon"
@@ -80,54 +109,56 @@ export default function Services() {
                     Regular checkups to detect and prevent dental issues early.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </Link>
-            <div className="h-px bg-gray-200 w-full"></div> {/* Divider */}
+            <div className="h-px bg-gray-200 w-full"></div>
+
             {/* Service 3 */}
-            <Link  href={'/services/teeth-whitening'}>
-            <div className="flex gap-6 ">
-              <div className="bg-[#062E2E] p-4 rounded-md flex items-center justify-center w-16 h-16">
-                {/* Icon */}
-                {/* Icon */}
-                <img
-                  src="/dental-implan-white.svg"
-                  alt="Dental Implant Icon"
-                  className="w-8 h-8"
-                />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-[#031B35] mb-1">
-                  Teeth Whitening
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Enhance your smile with safe and effective teeth whitening
-                  treatments.
-                </p>
-              </div>
-            </div>
+            <Link href={"/services/teeth-whitening"}>
+              <motion.div variants={fadeInUp} className="flex gap-6">
+                <div className="bg-[#062E2E] p-4 rounded-md flex items-center justify-center w-16 h-16">
+                  <img
+                    src="/dental-implan-white.svg"
+                    alt="Dental Implant Icon"
+                    className="w-8 h-8"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-[#031B35] mb-1">
+                    Teeth Whitening
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Enhance your smile with safe and effective teeth whitening
+                    treatments.
+                  </p>
+                </div>
+              </motion.div>
             </Link>
+
             {/* Button */}
             <Link href={"/services"}>
-              <Button className="bg-[#031B35] text-white mt-4 self-start">
-                All Services
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="ml-2 h-4 w-4"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </Button>
+              <motion.div variants={fadeInUp}>
+                <Button className="bg-[#031B35] text-white mt-4 self-start">
+                  All Services
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="ml-2 h-4 w-4"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </Button>
+              </motion.div>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

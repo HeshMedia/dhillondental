@@ -33,14 +33,18 @@ export default function Header() {
       {/* Main Header */}
       <div className="container py-4">
         <div className="flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-primary">
-            DHILLON DENTAL STUDIO
+          <Link href="/" className="flex items-center text-2xl font-bold text-primary">
+        <img src="/logo.png" alt="Logo" className="h-10 w-10 mr-2" />
+        DHILLON DENTAL STUDIO
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             <Link href="/" className="hover:text-[#031B35] transition-colors">
               Home
+            </Link>
+            <Link href="/doctors" className="hover:text-[#031B35] transition-colors">
+              Doctors
             </Link>
             <Link href="/about" className="hover:text-[#031B35] transition-colors">
               About Us

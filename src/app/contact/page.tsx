@@ -28,10 +28,10 @@ export default function ContactUsPage() {
         We'd love to hear from you! Whether you're ready to book an appointment or simply have a question about our services, our team is here to help.
           </p>
           <div className="space-y-4 text-lg">
-        <p><strong>Phone:</strong> +91 7009427538</p>
+        <p><strong>Phone:</strong> +91 7009427538 | 9876498799</p>
         <p><strong>Email:</strong> dhillonddentalstudio@gmail.com</p>
-        <p><strong>Address:</strong>Shop no 45, Crown Plaza Market, Airport Road, Amritsar</p>
-        <p><strong>Hours:</strong> Mon – Sat: 9:00 AM – 7:00 PM</p>
+        <p><strong>Address:</strong><span> </span>Shop no 45, Crown Plaza Market, Airport Road, Amritsar</p>
+        <p><strong>Hours:</strong> Mon – Sat: 10:00 AM – 9:00 PM</p>
           </div>
         </div>
 

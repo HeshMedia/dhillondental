@@ -1,18 +1,41 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+"use client";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function Journey() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true });
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, staggerChildren: 0.2 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
-    <section className="py-20 bg-gray-50">
+    <motion.section
+      ref={sectionRef}
+      className="py-20 bg-gray-50"
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
+    >
       <div className="container">
-        <div className="text-center mb-12">
-          <h3 className="text-sm font-medium  mb-2">How It Works</h3>
+        <motion.div className="text-center mb-12" variants={itemVariants}>
+          <h3 className="text-sm font-medium mb-2">How It Works</h3>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
             Your Journey to a Healthy Smile Starts Here
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div className="grid md:grid-cols-3 gap-8" variants={containerVariants}>
           {[
             {
               title: "Make Appointment",
@@ -81,39 +104,43 @@ export default function Journey() {
               ),
             },
           ].map((step, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
+            <motion.div
+              key={index}
+              className="bg-white p-6 rounded-lg shadow-sm"
+              variants={itemVariants}
+            >
               <div className="bg-primary p-4 rounded-md w-12 h-12 flex items-center justify-center mb-6">
                 {step.icon}
               </div>
               <h3 className="text-xl font-bold text-primary mb-3">{step.title}</h3>
               <p className="text-muted-foreground mb-6">{step.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="mt-12 text-center">
+        <motion.div className="mt-12 text-center" variants={itemVariants}>
           <Link href={"/contact"}>
-          <Button className="bg-primary hover:bg-[#4e83be] text-white">
-            Make Appointment
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="ml-2 h-4 w-4"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </Button>
+            <Button className="bg-primary hover:bg-[#4e83be] text-white">
+              Make Appointment
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="ml-2 h-4 w-4"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </Button>
           </Link>
-        </div>
+        </motion.div>
       </div>
-    </section>
-  )
+    </motion.section>
+  );
 }
