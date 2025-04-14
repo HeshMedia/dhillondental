@@ -3,10 +3,25 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { MapPin, Phone, Mail, Menu, X } from "lucide-react"
+import { MapPin, Phone, Mail, Menu, X, ChevronDown, ChevronUp } from "lucide-react"
+import { FaFacebookSquare, FaInstagram } from "react-icons/fa"
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
+  const [mobileServicesDropdownOpen, setMobileServicesDropdownOpen] = useState(false)
+
+  const services = [
+    { name: 'Dental Implants', slug: 'dental-implants' },
+    { name: 'Smile Makeover', slug: 'smile-makeover' },
+    { name: 'Braces & Aligners', slug: 'braces-aligners' },
+    { name: 'Teeth Whitening', slug: 'teeth-whitening' },
+    { name: 'Root Canal Treatment', slug: 'root-canal-treatment' },
+    { name: 'Full Mouth Rehabilitation', slug: 'full-mouth-rehabilitation' },
+    { name: 'Crowns & Bridges', slug: 'crowns-bridges' },
+    { name: 'Teeth Extractions', slug: 'teeth-extractions' },
+    { name: 'Pediatric Dentistry', slug: 'pediatric-dentistry' }
+  ]
 
   return (
     <header>
@@ -24,7 +39,15 @@ export default function Header() {
             </div>
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4" />
-              <span>dhillonddentalstudio@gmail.com</span>
+              <span>studiodhillondental@gmail.com</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Link href="https://www.instagram.com/dhillondentalstudio/" className="p-1 rounded-sm hover:bg-[#7AB5F5] transition-colors">
+                <FaInstagram className="h-6 w-6" />
+              </Link>
+              <Link href="https://www.facebook.com/people/Dhillon-Dental-Studio/100088950354619/" className=" p-1 rounded-sm hover:bg-[#7AB5F5] transition-colors">
+                <FaFacebookSquare className="h-6 w-6" />
+              </Link>
             </div>
           </div>
         </div>
@@ -34,8 +57,8 @@ export default function Header() {
       <div className="container py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center text-2xl font-bold text-primary">
-        <img src="/logo.png" alt="Logo" className="h-10 w-10 mr-2" />
-        DHILLON DENTAL STUDIO
+            <img src="/logo.png" alt="Logo" className="h-10 w-8 mr-2" />
+            DHILLON DENTAL STUDIO
           </Link>
 
           {/* Desktop Nav */}
@@ -49,9 +72,41 @@ export default function Header() {
             <Link href="/about" className="hover:text-[#031B35] transition-colors">
               About Us
             </Link>
-            <Link href="/services" className="hover:text-[#031B35] transition-colors">
-              Services
-            </Link>
+            
+            {/* Services Dropdown - Desktop */}
+            <div className="relative">
+              <button 
+                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                className="flex items-center hover:text-[#031B35] transition-colors focus:outline-none"
+              >
+                Services {servicesDropdownOpen ? <ChevronUp className="ml-1 h-4 w-4" /> : <ChevronDown className="ml-1 h-4 w-4" />}
+              </button>
+              
+              {servicesDropdownOpen && (
+                <div className="absolute z-50 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                  <div className="py-2 px-2 max-h-96 overflow-y-auto">
+                    {services.map((service) => (
+                      <Link 
+                        key={service.slug}
+                        href={`/services/${service.slug}`} 
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#B0D5FF] hover:text-[#031B35] rounded-md"
+                        onClick={() => setServicesDropdownOpen(false)}
+                      >
+                        {service.name}
+                      </Link>
+                    ))}
+                    <Link 
+                      href="/services" 
+                      className="block px-4 py-2 text-sm font-medium text-[#031B35] hover:bg-[#B0D5FF] mt-1 border-t border-gray-100 rounded-md"
+                      onClick={() => setServicesDropdownOpen(false)}
+                    >
+                      View All Services
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+            
             <Link href="/contact" className="hover:text-[#031B35] transition-colors">
               Contact Us
             </Link>
@@ -104,9 +159,38 @@ export default function Header() {
             <Link href="/about" className="block hover:text-[#031B35] transition-colors">
               About Us
             </Link>
-            <Link href="/services" className="block hover:text-[#031B35] transition-colors">
-              Services
-            </Link>
+            
+            {/* Services Dropdown - Mobile */}
+            <div>
+              <button
+                onClick={() => setMobileServicesDropdownOpen(!mobileServicesDropdownOpen)}
+                className="flex items-center w-full text-left hover:text-[#031B35] transition-colors focus:outline-none"
+              >
+                Services {mobileServicesDropdownOpen ? <ChevronUp className="ml-1 h-4 w-4 inline" /> : <ChevronDown className="ml-1 h-4 w-4 inline" />}
+              </button>
+              
+              {mobileServicesDropdownOpen && (
+                <div className="pl-4 mt-2 space-y-2">
+                  {services.map((service) => (
+                    <Link 
+                      key={service.slug}
+                      href={`/services/${service.slug}`} 
+                      className="block py-1 text-sm hover:text-[#031B35]"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {service.name}
+                    </Link>
+                  ))}
+                  <Link 
+                    href="/services" 
+                    className="block py-1 text-sm font-medium hover:text-[#031B35]"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    View All Services
+                  </Link>
+                </div>
+              )}
+            </div>
 
             <Link href="/contact" className="block hover:text-[#031B35] transition-colors">
               Contact Us

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { doctors } from "@/lib/data/doctorData";
 
 export default function Team() {
   const sectionRef = useRef(null);
@@ -40,29 +41,33 @@ export default function Team() {
         </motion.p>
 
         <motion.div
-          className="flex flex-col md:flex-row items-center md:items-start gap-10"
+          className="flex flex-col md:flex-row items-center md:items-start gap-10 flex-wrap "
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
         >
-          {/* Doctor Card */}
-          <motion.div
-            className="bg-white overflow-hidden flex flex-col w-[300px]"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <img
-              src="/dr-harpreet.jpg"
-              alt="Dr Harinder Kaur"
-              className="h-[300px] w-full object-cover"
-            />
-            <div className="p-4">
-              <h3 className="font-semibold text-gray-800">Dr Harinder Kaur</h3>
-              <p className="text-gray-500 text-sm">
-                Committed to delivering advanced and gentle dental care with a focus on patient comfort.
-              </p>
-            </div>
-          </motion.div>
+          {/* Doctor Cards */}
+          {doctors.map((doctor) => (
+            <motion.div
+              key={doctor.slug}
+              className="bg-white overflow-hidden flex flex-col w-[300px]"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img
+                src={doctor.image}
+                alt={doctor.name}
+                className="h-[300px] w-full object-cover"
+              />
+              <div className="p-4">
+                <h3 className="font-semibold text-gray-800">{doctor.name}</h3>
+                <p className="text-gray-600 text-sm mb-1">{doctor.title}</p>
+                <p className="text-gray-500 text-sm">
+                  {doctor.bio.slice(0, 100)}...
+                </p>
+              </div>
+            </motion.div>
+          ))}
 
           {/* Know More Button */}
           <motion.div

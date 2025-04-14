@@ -58,7 +58,7 @@ export interface ServiceDetail {
         'Minimal Tooth Preparation – A thin layer is removed to fit the veneers.',
         'Custom Veneer Placement – High-quality, natural-looking veneers are bonded for a stunning smile.',
       ],
-      image: 'https://images.unsplash.com/photo-1489278353717-f64c6ee8a4d2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: '/smilemakeoverdds.webp',
     },
 
     'braces-aligners': {
@@ -123,7 +123,7 @@ export interface ServiceDetail {
       steps: [
         'From diagnosis to recovery, we ensure a comfortable, stress-free experience with advanced techniques and expert care.',
       ],
-      image: 'https://images.unsplash.com/photo-1580821810660-5486b8e980a6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: '/rootcanaldds.webp',
     },
 
     'full-mouth-rehabilitation': {
@@ -147,7 +147,7 @@ export interface ServiceDetail {
       steps: [
         'From consultation to final results, we create a tailored treatment plan to restore your smile with precision and care.',
       ],
-      image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: '/fullmouthrehabdds.webp',
     },
 
     'crowns-bridges': {
@@ -170,7 +170,7 @@ export interface ServiceDetail {
       steps: [
         'From consultation to placement, we ensure a comfortable and precise treatment process for a fully restored, beautiful smile.',
       ],
-      image: '/crowns-bridges.jpg',
+      image: '/crownbridgedds.webp',
     },
 
     'teeth-extractions': {
@@ -193,7 +193,7 @@ export interface ServiceDetail {
       steps: [
         'With advanced techniques and expert care, we ensure a comfortable experience and a smooth recovery process.',
       ],
-      image: 'https://images.unsplash.com/photo-1606811842243-af7e16970c1f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: '/teethextractiondds.webp',
     },
 
     'pediatric-dentistry': {
@@ -217,6 +217,6 @@ export interface ServiceDetail {
       steps: [
         'We create a welcoming environment where kids feel comfortable, making dental visits enjoyable and fear-free.',
       ],
-      image: 'https://images.unsplash.com/photo-1653508310895-62141575a3a9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: '/pediatricdentistrydds.webp',
     },
   };

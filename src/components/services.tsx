@@ -103,10 +103,10 @@ export default function Services() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-[#031B35] mb-1">
-                    Regular Checkup
+                  Smile Makeover
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    Regular checkups to detect and prevent dental issues early.
+                  Achieve a stunning smile transformation with custom dental veneers.
                   </p>
                 </div>
               </motion.div>

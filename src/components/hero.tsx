@@ -8,7 +8,7 @@ export default function Hero() {
     <section
       className="relative text-white overflow-hidden"
       style={{
-        backgroundImage: "url('/dpp.png')",
+        backgroundImage: "url('/dpp.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -33,7 +33,7 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}     // Animate to original position
             transition={{ duration: 0.8 }}
           >
-            Your Smile <br /> Our Priority
+            Your Smile, <br /> Our Priority
           </motion.h1>
           <motion.p
             className="text-lg mb-8 opacity-95 drop-shadow-md"

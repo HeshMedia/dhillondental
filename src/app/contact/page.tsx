@@ -29,7 +29,7 @@ export default function ContactUsPage() {
           </p>
           <div className="space-y-4 text-lg">
         <p><strong>Phone:</strong> +91 7009427538 | 9876498799</p>
-        <p><strong>Email:</strong> dhillonddentalstudio@gmail.com</p>
+        <p><strong>Email:</strong> studiodhillondental@gmail.com</p>
         <p><strong>Address:</strong><span> </span>Shop no 45, Crown Plaza Market, Airport Road, Amritsar</p>
         <p><strong>Hours:</strong> Mon – Sat: 10:00 AM – 9:00 PM</p>
           </div>

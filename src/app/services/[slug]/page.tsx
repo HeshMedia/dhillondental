@@ -57,7 +57,7 @@ export default function ServiceDetailPage({
             </ul>
 
           <h2 className="text-xl font-bold text-[#0e2a47] mb-2">
-            {service.Sh}?
+            {service.Sh}
           </h2>
 
           <ul className="list-disc ml-6 text-gray-700 mb-6 space-y-1">
@@ -67,7 +67,7 @@ export default function ServiceDetailPage({
           </ul>
 
           <h2 className="text-xl font-bold text-[#0e2a47] mb-2">
-            {service.stepH}?
+            {service.stepH}
           </h2>
 
           <ul className="list-disc ml-6 text-gray-700 mb-6 space-y-1">

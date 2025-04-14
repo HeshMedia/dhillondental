@@ -1,6 +1,7 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import GoogleReviews from "./google-reviews";
 
 export default function Testimonials() {
   const ref = useRef(null);
@@ -21,27 +22,29 @@ export default function Testimonials() {
       <div className="container">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Section - Text and Testimonial */}
-          <motion.div
-            ref={ref}
-            variants={textVariants}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
-            <h3 className="text-sm font-medium text-gray-600 mb-2">Testimonials</h3>
-            <h2 className="text-5xl md:text-6xl font-bold text-[#031B35] mb-8 leading-tight">
-              What Our Patients <br /> Say About Us
-            </h2>
+          <div className="space-y-6">
+            <motion.div
+              ref={ref}
+              variants={textVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+            >
+              <h3 className="text-sm font-medium text-gray-600 mb-2">Testimonials</h3>
+              <h2 className="text-5xl md:text-4xl font-bold text-[#031B35] mb-8 leading-tight">
+                What Our Patients <br /> Say About Us
+              </h2>
+            </motion.div>
 
-            {/* Quote and Text */}
-            <div className="relative pl-2">
-              <div className="text-7xl text-[#B0D5FF] font-serif leading-none mb-4">“</div>
-              <p className="text-gray-500 text-lg leading-relaxed mb-8">
-                The team at Dhillon Dental Studio is amazing! They made me feel
-                comfortable and explained everything in detail. Highly
-                recommended!
-              </p>
-            </div>
-          </motion.div>
+            {/* Google Reviews Component */}
+            <motion.div 
+              variants={textVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              className="relative"
+            >
+              <GoogleReviews className="p-0 transform scale-90 origin-top-left" />
+            </motion.div>
+          </div>
 
           {/* Right Section - Decorative Block with Background Image */}
           <motion.div
@@ -49,7 +52,7 @@ export default function Testimonials() {
             variants={imageVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="relative w-full h-[28rem] bg-[#031B35]"
+            className="relative w-full h-[28rem] bg-[#031B35] rounded-lg overflow-hidden shadow-xl"
             style={{
               backgroundImage: "url(/review-sec.webp)",
               backgroundSize: "cover",
