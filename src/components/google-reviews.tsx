@@ -62,7 +62,17 @@ export default function GoogleReviews({ className }: GoogleReviewsProps) {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch('https://featurable.com/api/v1/widgets/8f0d7719-eb0d-4780-b71c-2e09d25679ab');
+        // Set a timeout to handle stalled fetch requests
+        const timeoutPromise = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Request timed out')), 10000)
+        );
+        
+        // Actual fetch request
+        const fetchPromise = fetch('https://featurable.com/api/v1/widgets/8f0d7719-eb0d-4780-b71c-2e09d25679ab');
+        
+        // Race between fetch and timeout
+        const response = await Promise.race([fetchPromise, timeoutPromise]) as Response;
+        
         if (!response.ok) {
           throw new Error('Failed to fetch reviews');
         }
@@ -74,14 +84,24 @@ export default function GoogleReviews({ className }: GoogleReviewsProps) {
           (a, b) => new Date(b.createTime).getTime() - new Date(a.createTime).getTime()
         );
         
-        setReviews(sortedReviews);
+        // Process reviews to add fallback for profilePhotoUrl if needed
+        const processedReviews = sortedReviews.map(review => ({
+          ...review,
+          reviewer: {
+            ...review.reviewer,
+            // Add a default profile photo as fallback
+            profilePhotoUrl: review.reviewer.profilePhotoUrl || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(review.reviewer.displayName)
+          }
+        }));
+        
+        setReviews(processedReviews);
         setAverageRating(data.averageRating);
         setTotalReviews(data.totalReviewCount);
         setLoading(false);
       } catch (err) {
+        console.error('Error fetching reviews:', err);
         setError('Failed to load reviews. Please try again later.');
         setLoading(false);
-        console.error('Error fetching reviews:', err);
       }
     };
 
@@ -222,6 +242,13 @@ export default function GoogleReviews({ className }: GoogleReviewsProps) {
                           width={40}
                           height={40}
                           className="object-cover w-full h-full"
+                          onError={(e) => {
+                            // Fallback for image loading errors
+                            const target = e.target as HTMLImageElement;
+                            target.onerror = null; // Prevent infinite error loop
+                            target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer.displayName)}&background=random`;
+                          }}
+                          unoptimized // Important: Skip optimization for external URLs
                         />
                       </div>
                       <div>
@@ -257,7 +284,8 @@ export default function GoogleReviews({ className }: GoogleReviewsProps) {
                     alt="Dhillon Dental Studio" 
                     width={20} 
                     height={20}
-                    className="opacity-50" 
+                    className="opacity-50"
+                    unoptimized={false} // Use Next.js optimization for local images
                   />
                 </div>
               </div>
