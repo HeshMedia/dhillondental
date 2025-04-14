@@ -1,5 +1,6 @@
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-
 import { serviceDetails } from '@/lib/data/services';
 import Link from "next/link";
 import { TiTick } from "react-icons/ti";
@@ -19,6 +20,34 @@ export default function ServiceDetailPage({
       <div className="p-12 text-center text-red-500">Service not found.</div>
     );
   }
+
+
+   const [isMobile, setIsMobile] = useState(false);
+    
+    useEffect(() => {
+      // Check if the user is on a mobile device
+      const checkMobile = () => {
+        setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+      };
+      
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      
+      return () => {
+        window.removeEventListener('resize', checkMobile);
+      };
+    }, []);
+  
+    const phoneNumber = '+917009427538';
+    const message = encodeURIComponent('Hi! I visited your website and would like to book an appointment.');
+  
+    const handleWhatsappClick = () => {
+      const whatsappURL = isMobile
+        ? `https://wa.me/${phoneNumber}?text=${message}`
+        : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+      window.open(whatsappURL, '_blank');
+    };
+  
 
   return (
     <div className="bg-white min-h-screen">
@@ -76,7 +105,7 @@ export default function ServiceDetailPage({
             ))}
           </ul>
             <Link href={"/contact"}>
-          <button className="bg-black text-white px-6 py-3 rounded-md mt-4 hover:bg-gray-800 transition">
+          <button onClick={handleWhatsappClick} className="bg-black text-white px-6 py-3 rounded-md mt-4 hover:bg-gray-800 transition">
             Make Appointment →
           </button>
           </Link>

@@ -62,46 +62,67 @@ export default function GoogleReviews({ className }: GoogleReviewsProps) {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        // Set a timeout to handle stalled fetch requests
+        setLoading(true);
+        setError(null);
+        
+        // Set a timeout to handle stalled fetch requests - longer timeout for mobile
         const timeoutPromise = new Promise((_, reject) => 
-          setTimeout(() => reject(new Error('Request timed out')), 10000)
+          setTimeout(() => reject(new Error('Request timed out')), 15000)
         );
         
-        // Actual fetch request
-        const fetchPromise = fetch('https://featurable.com/api/v1/widgets/8f0d7719-eb0d-4780-b71c-2e09d25679ab');
+        // Actual fetch request with cache control
+        const fetchPromise = fetch('https://featurable.com/api/v1/widgets/8f0d7719-eb0d-4780-b71c-2e09d25679ab', {
+          cache: 'no-store',
+          headers: {
+            'Accept': 'application/json',
+            'User-Agent': 'Mozilla/5.0 Dhillon Dental Client'
+          }
+        });
         
         // Race between fetch and timeout
         const response = await Promise.race([fetchPromise, timeoutPromise]) as Response;
         
         if (!response.ok) {
-          throw new Error('Failed to fetch reviews');
+          throw new Error(`Failed to fetch reviews: ${response.status}`);
         }
         
         const data = await response.json();
+        
+        if (!data || !data.reviews || !Array.isArray(data.reviews)) {
+          throw new Error('Invalid data format received from API');
+        }
         
         // Sort by newest reviews first
         const sortedReviews = [...data.reviews].sort(
           (a, b) => new Date(b.createTime).getTime() - new Date(a.createTime).getTime()
         );
         
-        // Process reviews to add fallback for profilePhotoUrl if needed
+        // Process reviews with better fallbacks
         const processedReviews = sortedReviews.map(review => ({
           ...review,
           reviewer: {
             ...review.reviewer,
+            // Ensure displayName exists
+            displayName: review.reviewer.displayName || 'Anonymous',
             // Add a default profile photo as fallback
-            profilePhotoUrl: review.reviewer.profilePhotoUrl || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(review.reviewer.displayName)
+            profilePhotoUrl: review.reviewer.profilePhotoUrl || 
+              `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer.displayName || 'Anonymous')}&background=random`
           }
         }));
         
         setReviews(processedReviews);
-        setAverageRating(data.averageRating);
-        setTotalReviews(data.totalReviewCount);
+        setAverageRating(data.averageRating || 5);
+        setTotalReviews(data.totalReviewCount || processedReviews.length);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching reviews:', err);
         setError('Failed to load reviews. Please try again later.');
         setLoading(false);
+        
+        // Provide fallback empty reviews after error
+        setReviews([]);
+        setAverageRating(5);
+        setTotalReviews(0);
       }
     };
 
@@ -156,6 +177,10 @@ export default function GoogleReviews({ className }: GoogleReviewsProps) {
       month: 'short',
       day: 'numeric',
     });
+  };
+
+  const getStaticAvatarUrl = (name: string) => {
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=random&color=fff`;
   };
 
   // Create a sliding window of reviews
@@ -236,19 +261,11 @@ export default function GoogleReviews({ className }: GoogleReviewsProps) {
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center">
                       <div className="w-10 h-10 rounded-full overflow-hidden mr-3 bg-gray-100 flex-shrink-0">
-                        <Image 
-                          src={review.reviewer.profilePhotoUrl} 
+                        <img 
+                          src={getStaticAvatarUrl(review.reviewer.displayName)}
                           alt={review.reviewer.displayName} 
-                          width={40}
-                          height={40}
                           className="object-cover w-full h-full"
-                          onError={(e) => {
-                            // Fallback for image loading errors
-                            const target = e.target as HTMLImageElement;
-                            target.onerror = null; // Prevent infinite error loop
-                            target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer.displayName)}&background=random`;
-                          }}
-                          unoptimized // Important: Skip optimization for external URLs
+                          loading="eager"
                         />
                       </div>
                       <div>

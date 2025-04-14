@@ -1,8 +1,37 @@
+"use client";
 import { CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function AboutUsPage() {
+
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    // Check if the user is on a mobile device
+    const checkMobile = () => {
+      setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
+  const phoneNumber = '+917009427538';
+  const message = encodeURIComponent('Hi! I visited your website and would like to book an appointment.');
+
+  const handleWhatsappClick = () => {
+    const whatsappURL = isMobile
+      ? `https://wa.me/${phoneNumber}?text=${message}`
+      : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+    window.open(whatsappURL, '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-[#f5f6fa]">
       {/* Banner */}
@@ -66,7 +95,7 @@ export default function AboutUsPage() {
           <h3 className="text-3xl font-bold text-[#0e2a47] mb-4">Ready to Transform Your Smile?</h3>
           <p className="text-lg text-gray-700 mb-6">Book your consultation with Dhillon Dental Studio and take the first step toward a healthier, more confident you.</p>
           <Link href="/contact">
-          <button className="bg-[#009FE3] hover:bg-[#007bbf] text-white text-lg px-8 py-3 rounded-full shadow-md transition-all duration-300">
+          <button onClick={handleWhatsappClick} className="bg-[#009FE3] hover:bg-[#007bbf] text-white text-lg px-8 py-3 rounded-full shadow-md transition-all duration-300">
             Book Your Visit
           </button>
           </Link>

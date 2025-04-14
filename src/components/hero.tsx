@@ -1,9 +1,35 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function Hero() {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    // Check if the user is on a mobile device
+    const checkMobile = () => {
+      setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
+  const phoneNumber = '+917009427538';
+  const message = encodeURIComponent('Hi! I visited your website and would like to book an appointment.');
+
+  const handleWhatsappClick = () => {
+    const whatsappURL = isMobile
+      ? `https://wa.me/${phoneNumber}?text=${message}`
+      : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+    window.open(whatsappURL, '_blank');
+  };
+
   return (
     <section
       className="relative text-white overflow-hidden"
@@ -45,32 +71,33 @@ export default function Hero() {
             high-quality care. With years of experience and a strong patient base, we are committed
             to ensuring healthy and beautiful smiles.
           </motion.p>
-          <Link href="/contact">
-            <motion.div
-              initial={{ opacity: 0, x: -100 }}  // Start from left (x-axis)
-              animate={{ opacity: 1, x: 0 }}     // Animate to original position
-              transition={{ duration: 1.2 }}
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}  // Start from left (x-axis)
+            animate={{ opacity: 1, x: 0 }}     // Animate to original position
+            transition={{ duration: 1.2 }}
+          >
+            <Button 
+              className="bg-[#00395D] hover:bg-[#BCE7F5] text-white hover:text-[#031B35] p-4 font-medium"
+              onClick={handleWhatsappClick}
             >
-              <Button className="bg-[#00395D] hover:bg-[#BCE7F5] text-white hover:text-[#031B35] p-4 font-medium">
-                Make Appointment
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="ml-2 h-4 w-4"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </Button>
-            </motion.div>
-          </Link>
+              Make Appointment
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="ml-2 h-4 w-4"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </Button>
+          </motion.div>
         </div>
       </div>
 

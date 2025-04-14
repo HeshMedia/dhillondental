@@ -3,9 +3,36 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Journey() {
+
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    // Check if the user is on a mobile device
+    const checkMobile = () => {
+      setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
+  const phoneNumber = '+917009427538';
+  const message = encodeURIComponent('Hi! I visited your website and would like to book an appointment.');
+
+  const handleWhatsappClick = () => {
+    const whatsappURL = isMobile
+      ? `https://wa.me/${phoneNumber}?text=${message}`
+      : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+    window.open(whatsappURL, '_blank');
+  };
+
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true });
 
@@ -120,7 +147,7 @@ export default function Journey() {
 
         <motion.div className="mt-12 text-center" variants={itemVariants}>
           <Link href={"/contact"}>
-            <Button className="bg-primary hover:bg-[#4e83be] text-white">
+            <Button onClick={handleWhatsappClick} className="bg-primary hover:bg-[#4e83be] text-white">
               Make Appointment
               <svg
                 xmlns="http://www.w3.org/2000/svg"

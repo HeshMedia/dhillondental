@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { MapPin, Phone, Mail, Menu, X, ChevronDown, ChevronUp } from "lucide-react"
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa"
@@ -22,6 +22,31 @@ export default function Header() {
     { name: 'Teeth Extractions', slug: 'teeth-extractions' },
     { name: 'Pediatric Dentistry', slug: 'pediatric-dentistry' }
   ]
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    // Check if the user is on a mobile device
+    const checkMobile = () => {
+      setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
+  const phoneNumber = '+917009427538';
+  const message = encodeURIComponent('Hi! I visited your website and would like to book an appointment.');
+
+  const handleWhatsappClick = () => {
+    const whatsappURL = isMobile
+      ? `https://wa.me/${phoneNumber}?text=${message}`
+      : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+    window.open(whatsappURL, '_blank');
+  };
 
   return (
     <header>
@@ -128,7 +153,7 @@ export default function Header() {
          
           <div className="hidden md:block">
           <Link href="/contact">
-            <Button className="bg-[#00395D] hover:bg-gray-800 text-white border-2 border-gray-800 font-medium">
+            <Button  onClick={handleWhatsappClick} className= "bg-[#00395D] hover:bg-gray-800 text-white border-2 border-gray-800 font-medium">
               Get Started
               <svg
                 xmlns="http://www.w3.org/2000/svg"
