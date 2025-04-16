@@ -50,8 +50,8 @@ export default function Header() {
 
   return (
     <header>
-      {/* Top Bar */}
-      <div className="bg-tertiary py-2">
+      {/* Top Bar - Hidden on mobile */}
+      <div className="hidden sm:block bg-tertiary py-2">
         <div className="container flex flex-col md:flex-row justify-between items-center text-sm gap-2">
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4" />

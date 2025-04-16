@@ -50,7 +50,7 @@ export default function Team() {
           {doctors.map((doctor) => (
             <motion.div
               key={doctor.slug}
-              className="bg-white overflow-hidden flex flex-col w-[300px]"
+              className="bg-white overflow-hidden flex flex-col w-full sm:w-[300px]"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
