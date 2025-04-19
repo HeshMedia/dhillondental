@@ -5,10 +5,8 @@ export default function ContactUsPage() {
   // Define state to track form inputs
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    phone: '',
     message: '',
-    date: '',
-    time: ''
   });
   
   // State to detect mobile device
@@ -35,7 +33,8 @@ export default function ContactUsPage() {
     // Format the message with form data
     const phoneNumber = '917009427538'; // Remove the + and space
     const message = encodeURIComponent(
-      `📋 *Appointment Request*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Date:* ${formData.date}\n*Time:* ${formData.time}\n*Message:* ${formData.message}`
+      `📋 *Appointment Request*\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*
+      \n*Message:* ${formData.message}`
     );
     
     // Create WhatsApp URL
@@ -94,10 +93,10 @@ export default function ContactUsPage() {
               className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
             />
             <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              value={formData.email}
+              type="number"
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
@@ -111,22 +110,7 @@ export default function ContactUsPage() {
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
             ></textarea>
-            <input
-              type="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
-            />
-            <input
-              type="time"
-              name="time"
-              value={formData.time}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
-            />
+           
             <button
               type="submit"
               className="bg-[#009FE3] hover:bg-[#007bbf] text-white font-medium px-6 py-3 rounded-md shadow-md transition duration-300 flex items-center justify-center gap-2"
