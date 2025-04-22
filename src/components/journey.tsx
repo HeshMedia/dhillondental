@@ -6,7 +6,8 @@ import { useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 export default function Journey() {
-
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true });
   const [isMobile, setIsMobile] = useState(false);
   
   useEffect(() => {
@@ -33,9 +34,6 @@ export default function Journey() {
     window.open(whatsappURL, '_blank');
   };
 
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true });
-
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, staggerChildren: 0.2 } },
@@ -51,7 +49,8 @@ export default function Journey() {
       ref={sectionRef}
       className="py-20 bg-gray-50"
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      whileInView="visible"
+      viewport={{ once: true }}
       variants={containerVariants}
     >
       <div className="container">
@@ -84,13 +83,19 @@ export default function Journey() {
                   <line x1="16" x2="16" y1="2" y2="6" />
                   <line x1="8" x2="8" y1="2" y2="6" />
                   <line x1="3" x2="21" y1="10" y2="10" />
+                  <path d="M8 14h.01" />
+                  <path d="M12 14h.01" />
+                  <path d="M16 14h.01" />
+                  <path d="M8 18h.01" />
+                  <path d="M12 18h.01" />
+                  <path d="M16 18h.01" />
                 </svg>
               ),
             },
             {
-              title: "Expert Dental Care",
+              title: "Dental Treatment",
               description:
-                "Receive top-notch dental care from our experienced professionals. We prioritize your comfort and oral health at every visit.",
+                "Receive expert treatment from our professional team in a comfortable and modern environment, using the latest technology and techniques.",
               icon: (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -103,14 +108,15 @@ export default function Journey() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M17.5 6.5 12 12m0 0L6.5 6.5M12 12l-5.5 5.5M12 12l5.5 5.5" />
+                  <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <path d="M8 7V3m4 4V3m4 4V3" />
                 </svg>
               ),
             },
             {
-              title: "Radiate Confidence",
+              title: "Smile & Confidence",
               description:
-                "Achieve a radiant smile that boosts your confidence. Let us help you shine with a smile you’ll love to share.",
+                "Walk away with a beautiful smile and the confidence to showcase it. We ensure that you leave our practice feeling happy and satisfied.",
               icon: (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

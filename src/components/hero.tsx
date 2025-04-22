@@ -44,37 +44,41 @@ export default function Hero() {
 
       <div className="container py-24 relative z-10">
         <div className="max-w-2xl">
-          {/* Animated Heading and Subheading from the left */}
+          {/* Heading and Subheading with reduced animation delay */}
           <motion.h2
             className="text-lg font-medium mb-2 drop-shadow-lg"
-            initial={{ opacity: 0, x: -100 }}  // Start from left (x-axis)
-            animate={{ opacity: 1, x: 0 }}     // Animate to original position
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -20 }}  
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3 }} 
           >
             Dhillon Dental Studio
           </motion.h2>
           <motion.h1
             className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-xl"
-            initial={{ opacity: 0, x: -100 }}  // Start from left (x-axis)
-            animate={{ opacity: 1, x: 0 }}     // Animate to original position
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, x: -20 }}  
+            whileInView={{ opacity: 1, x: 0 }}     
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
           >
             Your Smile, <br /> Our Priority
           </motion.h1>
           <motion.p
             className="text-lg mb-8 opacity-95 drop-shadow-md"
-            initial={{ opacity: 0, x: -100 }}  // Start from left (x-axis)
-            animate={{ opacity: 1, x: 0 }}     // Animate to original position
-            transition={{ duration: 1 }}
+            initial={{ opacity: 0, x: -20 }}  
+            whileInView={{ opacity: 1, x: 0 }}    
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
             Dhillon Dental Studio is a trusted family dental practice dedicated to providing
             high-quality care. With years of experience and a strong patient base, we are committed
             to ensuring healthy and beautiful smiles.
           </motion.p>
           <motion.div
-            initial={{ opacity: 0, x: -100 }}  // Start from left (x-axis)
-            animate={{ opacity: 1, x: 0 }}     // Animate to original position
-            transition={{ duration: 1.2 }}
+            initial={{ opacity: 0, x: -20 }}  
+            whileInView={{ opacity: 1, x: 0 }}     
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
             <Button 
               className="bg-[#00395D] hover:bg-[#BCE7F5] text-white hover:text-[#031B35] p-4 font-medium"
@@ -101,43 +105,49 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Decorative Elements with Animation from the left */}
+      {/* Decorative Elements with reduced animation delays */}
       <div className="absolute bottom-0 right-0 z-10">
         <motion.div
           className="w-16 h-16 bg-[#A4D4F2] absolute bottom-0 right-32"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          initial={{ opacity: 0, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         />
         <motion.div
           className="w-16 h-16 bg-white absolute bottom-0 right-0"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          initial={{ opacity: 0, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
         />
         <motion.div
           className="w-16 h-16 bg-[#f8f8f8] absolute bottom-0 right-16"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
+          initial={{ opacity: 0, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         />
         <motion.div
           className="w-16 h-16 bg-[#009FE3] absolute bottom-16 right-0"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          initial={{ opacity: 0, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.25 }}
         />
         <motion.div
           className="w-16 h-16 bg-gray-600 absolute bottom-32 right-0 opacity-50"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
+          initial={{ opacity: 0, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
         />
         <motion.div
           className="w-16 h-16 bg-gray-600 absolute bottom-16 right-16 opacity-50"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.7 }}
+          initial={{ opacity: 0, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.35 }}
         />
       </div>
     </section>

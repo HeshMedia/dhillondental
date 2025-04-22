@@ -18,7 +18,8 @@ export default function Team() {
         <motion.h3
           className="text-sm font-medium text-white/70 mb-2"
           initial={{ opacity: 0, y: -20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
           Our Doctors
@@ -26,7 +27,8 @@ export default function Team() {
         <motion.h2
           className="text-4xl font-bold mb-4 md:mb-6"
           initial={{ opacity: 0, y: -20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           Meet Our Expert Dental Team
@@ -34,7 +36,8 @@ export default function Team() {
         <motion.p
           className="text-white/80 mb-12 max-w-3xl"
           initial={{ opacity: 0, y: -20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
           At Dhillon Dental Studio, our skilled and compassionate team is dedicated to providing top-quality dental care. With expertise in various dental specialties, we ensure the best treatment for every patient.
@@ -43,7 +46,8 @@ export default function Team() {
         <motion.div
           className="flex flex-col md:flex-row items-center md:items-start gap-10 flex-wrap "
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           {/* Doctor Cards */}
@@ -73,7 +77,8 @@ export default function Team() {
           <motion.div
             className="flex justify-center md:self-center"
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.9 }}
           >
             <Link href="/doctors">
@@ -104,19 +109,22 @@ export default function Team() {
       <motion.div
         className="absolute top-0 right-0 w-16 h-16 bg-[#009FE3]"
         initial={{ scale: 0 }}
-        animate={isInView ? { scale: 1 } : {}}
+        whileInView={{ scale: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       />
       <motion.div
         className="absolute top-6 right-6 w-12 h-12 bg-white/20"
         initial={{ scale: 0 }}
-        animate={isInView ? { scale: 1 } : {}}
+        whileInView={{ scale: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       />
       <motion.div
         className="absolute bottom-0 left-0 w-16 h-16 bg-[#009FE3]"
         initial={{ scale: 0 }}
-        animate={isInView ? { scale: 1 } : {}}
+        whileInView={{ scale: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.7 }}
       />
     </section>

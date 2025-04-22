@@ -7,7 +7,7 @@ import { useRef } from "react";
 
 export default function Services() {
   const ref = useRef(null);
-  const inView = useInView(ref, { amount: 0.2 });
+  const inView = useInView(ref, { amount: 0.2, once: true });
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
@@ -27,7 +27,8 @@ export default function Services() {
           <motion.div
             ref={ref}
             initial="hidden"
-            animate={inView ? "visible" : "hidden"}
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             variants={fadeInUp}
             className="flex flex-col justify-between h-full"
           >
@@ -62,9 +63,9 @@ export default function Services() {
 
           {/* Right Section - Services List */}
           <motion.div
-            ref={ref}
             initial="hidden"
-            animate={inView ? "visible" : "hidden"}
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             variants={fadeInUp}
             className="flex flex-col justify-between pt-10 space-y-8"
           >
@@ -106,7 +107,7 @@ export default function Services() {
                   Smile Makeover
                   </h3>
                   <p className="text-gray-600 text-sm">
-                  Achieve a stunning smile transformation with custom dental veneers.
+                  Achieve a stunning smile transformation with custom dental veneers.
                   </p>
                 </div>
               </motion.div>
