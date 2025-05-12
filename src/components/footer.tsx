@@ -69,7 +69,12 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="bg-[#B0D5FF] py-4">
         <div className="container flex flex-col md:flex-row justify-between items-center text-sm text-[#062E2E]">
-          <div>Copyright © 2023 Dhillon Dental Studio | Design by HeshMedia</div>
+          <div>Copyright © 2023 Dhillon Dental Studio | Design by 
+            <span> </span>
+            
+            <Link href="https://www.heshmedia.in/" className ="underline font-bold" target="_blank" >HeshMedia</Link>
+            
+            </div>
           <div className="flex gap-4 mt-2 md:mt-0">
             <Link href="/terms" className="hover:underline">Terms of Use</Link>
             <Link href="/privacy" className="hover:underline">Privacy Policy</Link>
